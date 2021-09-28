@@ -21,7 +21,6 @@ public class VidaNoturnaServlet extends HttpServlet {
 			HttpServletResponse response) throws IOException, ServletException {
 		
 		int intClassification = Integer.parseInt(request.getParameter("selectClassif"));
-		System.out.println(intClassification);
 		
 		ArrayList<VidaNoturna> bd = new ArrayList<VidaNoturna>();
 		
@@ -29,8 +28,6 @@ public class VidaNoturnaServlet extends HttpServlet {
 		bd.add(new VidaNoturna(2, "Rua Francisca José, 24", 5, 200.99));
 		bd.add(new VidaNoturna(3, "Rua Francisca José, 25", 4, 150.99));
 		bd.add(new VidaNoturna(4, "Rua Francisca José, 26", 4, 160.99));
-		bd.add(new VidaNoturna(5, "Rua Francisca José, 27", 3, 120.99));
-		bd.add(new VidaNoturna(6, "Rua Francisca José, 28", 3, 110.99));
 		bd.add(new VidaNoturna(7, "Rua Francisca José, 29", 2, 90.99));
 		bd.add(new VidaNoturna(8, "Rua Francisca José, 30", 2, 80.99));
 		bd.add(new VidaNoturna(9, "Rua Francisca José, 31", 1, 50.99));
@@ -49,6 +46,7 @@ public class VidaNoturnaServlet extends HttpServlet {
 		String paginaDestino = null;
 		
 		if (resultadoLista.isEmpty()) {
+			request.setAttribute("TipoErro", "voltaFiltro");
 			request.setAttribute("Mensagem", "Não encontramos locais com esta classificação!");
 			paginaDestino = "/erro.jsp";
 		} else {

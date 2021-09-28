@@ -32,6 +32,7 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("User", usuario);
 			paginaDestino = "/filtroVidaNoturna.jsp";
 		} else {
+			request.setAttribute("TipoErro", "voltaLogin");
 			request.setAttribute("Mensagem", "Login não encontrado");
 			paginaDestino = "/erro.jsp";
 		}

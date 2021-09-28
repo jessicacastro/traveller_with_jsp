@@ -8,6 +8,8 @@
      receber do controller -->
 <jsp:useBean id="Mensagem" type="java.lang.String" 
               scope="request" />
+<jsp:useBean id="TipoErro" type="java.lang.String" 
+              scope="request" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +20,16 @@
 	<hr>
 	Mensagem de Erro: <c:out value="${Mensagem}" />
 	<br>
-	<a href="./index.jsp">Voltar ao Inicio</a>
+	
+	<c:choose>
+    	<c:when test="${TipoErro=='voltaLogin'}">
+        	<a href="./index.jsp">Voltar ao Login</a> 
+        	<br />
+    	</c:when>    
+   		<c:otherwise>
+        	<a href="./filtroVidaNoturna.jsp">Voltar</a> 
+        	<br />
+    	</c:otherwise>
+	</c:choose>
 </body>
 </html>

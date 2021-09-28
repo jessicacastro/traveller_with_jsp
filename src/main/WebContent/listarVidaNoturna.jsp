@@ -3,6 +3,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <jsp:useBean id="User" type="model.Usuario" scope="session"/>
 <jsp:useBean id="Locais" type="java.util.ArrayList" scope="request" />
 
@@ -23,5 +24,6 @@
     <hr>
     </c:forEach>
 
+	<a href="./filtroVidaNoturna.jsp">Voltar</a>
 </body>
 </html>
